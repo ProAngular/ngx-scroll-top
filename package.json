@@ -1,0 +1,109 @@
+{
+  "name": "@proangular/ngx-scroll-top",
+  "version": "1.0.0",
+  "description": "Configurable, lightweight back to top button for Angular projects.",
+  "author": "Pro Angular <webmaster@proangular.com>",
+  "homepage": "https://www.proangular.com",
+  "private": false,
+  "engines": {
+    "node": ">=16.14.2 <17",
+    "npm": ">=8.5.0"
+  },
+  "scripts": {
+    "angular-version": "ng --version",
+    "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "lint": "ng lint",
+    "lint-staged": "lint-staged",
+    "ng": "ng",
+    "patch-package": "patch-package",
+    "postinstall": "is-ci || husky install && patch-package",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "start": "ng serve --open",
+    "start:hmr": "ng serve --open --hmr",
+    "start:prod": "ng serve --configuration production --open",
+    "test": "ng test",
+    "test:silent": "ng test --watch=false",
+    "update:angular:run": "ng update",
+    "update:packages:check": "ncu",
+    "update:packages:run": "ncu -u",
+    "watch": "ng build --watch --configuration development",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@angular/animations": "^14.1.0",
+    "@angular/common": "^14.1.0",
+    "@angular/compiler": "^14.1.0",
+    "@angular/core": "^14.1.0",
+    "@angular/forms": "^14.1.0",
+    "@angular/material": "^14.1.0",
+    "@angular/platform-browser": "^14.1.0",
+    "@angular/platform-browser-dynamic": "^14.1.0",
+    "@angular/router": "^14.1.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.1.0",
+    "@angular-eslint/builder": "14.0.1",
+    "@angular-eslint/eslint-plugin": "14.0.1",
+    "@angular-eslint/eslint-plugin-template": "14.0.1",
+    "@angular-eslint/schematics": "14.0.1",
+    "@angular-eslint/template-parser": "14.0.1",
+    "@angular/cli": "~14.1.0",
+    "@angular/compiler-cli": "^14.1.0",
+    "@types/jasmine": "~4.0.0",
+    "@typescript-eslint/eslint-plugin": "5.29.0",
+    "@typescript-eslint/parser": "5.29.0",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.3",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-rxjs": "^5.0.2",
+    "eslint-plugin-rxjs-angular": "^2.0.0",
+    "eslint-plugin-unicorn": "^43.0.1",
+    "husky": "^8.0.1",
+    "is-ci": "^3.0.1",
+    "jasmine-core": "~4.2.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "patch-package": "^6.4.7",
+    "prettier": "^2.7.1",
+    "typescript": "~4.7.2"
+  },
+  "contributors": [{
+    "name": "Cody Tolene",
+    "email": "webmaster@codytolene.com",
+    "url": "https://www.codytolene.com"
+  }],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProAngular/ngx-scroll-top.git"
+  },
+  "keywords": [
+    "Pro",
+    "Angular",
+    "Scroll",
+    "Top",
+    "ngx-scroll-top",
+    "scroll-top"
+  ],
+  "bugs": {
+    "url": "https://github.com/ProAngular/ngx-scroll-top/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/proangular"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "main": "src/main.ts"
+}
