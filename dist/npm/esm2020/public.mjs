@@ -1,0 +1,4 @@
+/** Public API Exports for Node Package */
+export * from './ngx-scroll-top.component';
+export * from './ngx-scroll-top.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2FwcC9wdWJsaWMvcHVibGljLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDBDQUEwQztBQUUxQyxjQUFjLDRCQUE0QixDQUFDO0FBQzNDLGNBQWMseUJBQXlCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiogUHVibGljIEFQSSBFeHBvcnRzIGZvciBOb2RlIFBhY2thZ2UgKi9cblxuZXhwb3J0ICogZnJvbSAnLi9uZ3gtc2Nyb2xsLXRvcC5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9uZ3gtc2Nyb2xsLXRvcC5tb2R1bGUnO1xuIl19
