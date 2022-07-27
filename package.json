@@ -1,6 +1,6 @@
 {
   "name": "@proangular/ngx-scroll-top",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Configurable, lightweight back to top button for Angular projects.",
   "author": "Pro Angular <webmaster@proangular.com>",
   "homepage": "https://www.proangular.com",
@@ -25,7 +25,8 @@
   "peerDependencies": {
     "@angular/animations": ">=12 <15",
     "@angular/common": ">=12 <15",
-    "@angular/core": ">=12 <15"
+    "@angular/core": ">=12 <15",
+    "@angular/platform-browser": ">=12 <15"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.1.0",
@@ -38,7 +39,6 @@
     "@angular/compiler": "^14.1.0",
     "@angular/compiler-cli": "^14.1.0",
     "@angular/forms": "^14.1.0",
-    "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
     "@types/jasmine": "~4.0.0",
