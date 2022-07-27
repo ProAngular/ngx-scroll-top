@@ -3,6 +3,4 @@
 
 npm run prettier
 npm run lint
-npm run build:prod
-npm run npm-build-package
 git add --update
