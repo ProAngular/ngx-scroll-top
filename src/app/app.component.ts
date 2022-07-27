@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pro-app',
+  selector: 'ngx-app',
   template: `<p>Init</p>`,
 })
 export class AppComponent {}
