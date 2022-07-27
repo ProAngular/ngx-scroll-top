@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run prettier
-git add --update
 npm run lint
+npm run build:prod
 npm run npm-build-package
 git add --update
