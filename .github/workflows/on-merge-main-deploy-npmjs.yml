@@ -16,8 +16,10 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
+      - run: npm install npm@latest -g
+      - run: npm config set registry http://registry.npmjs.org
       - run: npm run npm-build-package:npmjs
-      - run: cd dist/npm
+      - run: rm .npmrc && cd dist/npm
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
