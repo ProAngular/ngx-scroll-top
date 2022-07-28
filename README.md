@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.ProAngular.com" target="_blank">
-    <img src="src/assets/pro-angular-logo.png">
+    <img src="src/assets/images/pro-angular-logo.png">
   </a>
   <h1 align="center">
     <a href="https://www.ProAngular.com" target="_blank">
@@ -17,3 +17,6 @@
 
 # Description
 Configurable, lightweight back to top button for Angular projects.
+
+# Demo
+![Demo animation](src/assets/images/demo-scroll-top.gif?raw=true)
