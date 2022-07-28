@@ -16,6 +16,7 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
           scope: "@proangular"
+      - run: npm config set registry https://registry.npmjs.org/
       - run: npm ci
       - run: npm run npm-build-package:gpr
       - run: cd dist/npm && npm publish
