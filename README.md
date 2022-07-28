@@ -25,29 +25,17 @@ Configurable, lightweight back to top button for Angular projects.
   <img src="src/assets/images/demo-scroll-top.gif" />
 </p>
 
-To run this demo:
-* `git clone https://github.com/ProAngular/ngx-scroll-top.git`
-* `cd ngx-scroll-top`
-* `npm install`
-* `npm run start`
+# Installation
 
-# Installation and importing
-
-## Installation
-
-Angular
 ```bash
 ng add @proangular/ngx-scroll-top@latest
 ```
-
-Direct
+or
 ```bash
 npm install @proangular/ngx-scroll-top --save
 ```
 
-## Import
-
-Import package into the module of your choice
+Import `NgxScrollTopModule` where needed
 ```diff
 ...
 + import { NgxScrollTopModule } from '@proangular/ngx-scroll-top';
@@ -63,14 +51,14 @@ Import package into the module of your choice
 export class AppModule { }
 ```
 
-# Usage and Examples
+# Usage
 
-Default use (blue button with white icon)
+Default (blue button with white icon)
 ```html
 <ngx-scroll-top></ngx-scroll-top>
 ```
 
-Example with optional inputs
+Customization with optional inputs and icon
 ```html
 <ngx-scroll-top
   backgroundColor="#0D58C0"
@@ -109,15 +97,19 @@ Example with optional inputs
 
 # Development
 
-1. Clone, create new branch.
-* `git clone https://github.com/ProAngular/ngx-scroll-top.git`
-* `git checkout -b username/feature`
-2. Bump version of package in `package.json` and `package-lock.json`, commit all changes, push.
-* `git add -A`
-* `git commit -m "My commit message"`
-* `git push origin username/feature`
+Please submit all issues, and feature requests here: [https://github.com/ProAngular/ngx-scroll-top/issues](https://github.com/ProAngular/ngx-scroll-top/issues)
+
+Contribution:
+
+1. Clone the repo and create a new branch:
+  * `git clone https://github.com/ProAngular/ngx-scroll-top.git`
+  * `git checkout -b username/feature-or-bug-description`
+2. Bump up the version of package in `package.json` and `package-lock.json`, commit all changes, push.
+  * `git add -A`
+  * `git commit -m "My commit message"`
+  * `git push origin username/feature-or-bug-description`
 3. Submit code in published PR for review and approval. Add a good description and link any possible user stories or bugs.
-* [Create a new pull request](https://github.com/ProAngular/ngx-scroll-top/compare).
+  * [Create a new pull request](https://github.com/ProAngular/ngx-scroll-top/compare).
 4. Allow CI actions to completely run and verify files.
 5. Add/ping reviewers and await approval.
 
