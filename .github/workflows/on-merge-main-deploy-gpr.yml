@@ -21,6 +21,6 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
       - run: npm ci
       - run: npm run npm-build-package:gpr
-      - run: cd dist/npm && npm publish
+      - run: npm publish --folder dist/npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
