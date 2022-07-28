@@ -11,7 +11,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       packages: write
     steps:
       - uses: actions/checkout@v3
@@ -22,8 +22,8 @@ jobs:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
       - run: >
-          git config --global url."https://github.com/".insteadOf
-          ssh://git@github.com/
+          git config --global url."https://${{ secrets.GITHUB_TOKEN
+          }}@github.com/".insteadOf  ssh://git@github.com/
       - run: npm ci
       - run: npm run npm-build-package
       - run: npm publish --access public --folder dist/npm
