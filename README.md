@@ -101,12 +101,13 @@ Thank you for your contributions!
 # Donation
 
 As a husband and father of four children, your donations mean the world to me! Any donations are greatly appreciated and keep me going!
+
 [https://www.paypal.me/CodyTolene](https://www.paypal.me/CodyTolene)
 [https://github.com/sponsors/ProAngular](https://github.com/sponsors/ProAngular)
 
 # License
 
-Copyright &copy; 2022 [Cody Tolene](https//www.CodyTolene.com)
+Copyright &copy; 2022 [Cody Tolene](https://www.CodyTolene.com)
 
 All contents are licensed under the [MIT license].
 
