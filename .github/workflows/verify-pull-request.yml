@@ -4,12 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
-        run: npm ci
-
+      - uses: actions/checkout@v3
       - name: Verify Code 👌
         run: |
+          run: npm ci
           npm run lint
           npm run prettier:check
 
