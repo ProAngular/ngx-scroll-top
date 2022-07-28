@@ -1,6 +1,6 @@
 {
   "name": "@proangular/ngx-scroll-top",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Configurable, lightweight back to top button for Angular projects.",
   "author": "Pro Angular <webmaster@proangular.com>",
   "homepage": "https://www.proangular.com",
@@ -15,11 +15,13 @@
     "lint": "ng lint",
     "lint-staged": "lint-staged",
     "npm-build-package": "ng-packagr -p ng-package.json",
+    "ng": "ng",
     "postinstall": "is-ci || husky install",
     "prepare": "husky install",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "start": "ng serve --open",
+    "test": "ng test",
     "start:prod": "ng serve --configuration production --open"
   },
   "peerDependencies": {
@@ -41,7 +43,6 @@
     "@angular/forms": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
-    "@types/fs-extra": "^9.0.13",
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "5.29.0",
     "@typescript-eslint/parser": "5.29.0",
@@ -53,7 +54,6 @@
     "eslint-plugin-rxjs": "^5.0.2",
     "eslint-plugin-rxjs-angular": "^2.0.0",
     "eslint-plugin-unicorn": "^43.0.1",
-    "fs-extra": "^10.1.0",
     "husky": "^8.0.1",
     "is-ci": "^3.0.1",
     "jasmine-core": "~4.2.0",
