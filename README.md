@@ -1,6 +1,12 @@
 <p align="center">
-  <img src="src/assets/pro-angular-logo.png">
-  <h1 align="center">Angular Scroll Top Button</h1>
+  <a href="https://www.ProAngular.com" target="_blank">
+    <img src="src/assets/pro-angular-logo.png">
+  </a>
+  <h1 align="center">
+    <a href="https://www.ProAngular.com" target="_blank">
+      Pro Angular
+    </a>: Scroll Top Button
+  </h1>
 </p>
 
 [![npm version](https://badge.fury.io/js/@proangular%2Fngx-scroll-top.svg)](https://badge.fury.io/js/@proangular%2Fngx-scroll-top)
