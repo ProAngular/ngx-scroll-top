@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: "16.14.2"
+          node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
-      - run: npm install npm@16.14.2
+      - run: npm install npm@latest -g
       - run: npm set registry=https://registry.npmjs.org/
       - run: npm install -g https://tls-test.npmjs.com/tls-test-1.0.0.tgz
       - run: npm run npm-build-package
