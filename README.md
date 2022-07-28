@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/assets/pro-angular-logo.svg?sanitize=true">
+  <img src="src/assets/pro-angular-logo.png">
   <h1 align="center">Angular Scroll Top Button</h1>
 </p>
 
