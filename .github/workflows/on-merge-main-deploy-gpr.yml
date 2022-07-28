@@ -18,7 +18,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           registry-url: "https://npm.pkg.github.com"
-          scope: "@proangular"
       - run: npm ci
       - run: npm run npm-build-package
       - run: cd dist/npm && npm publish
