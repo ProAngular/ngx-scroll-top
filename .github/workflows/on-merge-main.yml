@@ -1,10 +1,10 @@
-name: "Validate and Deploy"
+name: "Verify and Deploy"
 on:
   push:
     branches:
       - main
 jobs:
-  "Validate and Deploy":
+  verify_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
