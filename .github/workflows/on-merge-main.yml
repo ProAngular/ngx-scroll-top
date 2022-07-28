@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Checkout 🛎️
         run: npm ci
 
@@ -23,9 +24,9 @@ jobs:
 
       # https://docs.npmjs.com/about-packages-and-modules
       - uses: actions/setup-node@v3
-      - name: Deploy Package to `npmjs` 🚀
         with:
           registry-url: "https://registry.npmjs.org"
+      - name: Deploy Package to `npmjs` 🚀
       - run: npm publish --access public --folder dist/npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
@@ -33,9 +34,9 @@ jobs:
       # https://docs.github.com/en/packages
       # https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
       - uses: actions/setup-node@v3
-      - name: Deploy Package to `gpr` 🚀
         with:
           registry-url: "https://npm.pkg.github.com"
+      - name: Deploy Package to `gpr` 🚀
       - run: npm publish --access public --folder dist/npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
