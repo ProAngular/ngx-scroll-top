@@ -92,14 +92,23 @@ Use package
 # Development
 
 1. Clone, create new branch.
+
 `git clone https://github.com/ProAngular/ngx-scroll-top.git`
+
 `git checkout -b username/feature`
+
 2. Bump version of package in `package.json` and `package-lock.json`, commit all changes, push.
+
 `git add -A`
+
 `git commit -m "My commit message"`
+
 `git push origin username/feature`
+
 3. Submit code in published PR for review and approval. Add a good description and link any possible user stories or bugs.
-[Create a new Pull Request](https://github.com/ProAngular/ngx-scroll-top/compare)
+
+[Create a new pull request](https://github.com/ProAngular/ngx-scroll-top/compare).
+
 4. Allow CI actions to completely run and verify files.
 5. Add/ping reviewers and await approval.
 
