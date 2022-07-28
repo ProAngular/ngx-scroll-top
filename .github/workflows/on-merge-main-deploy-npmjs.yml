@@ -15,8 +15,9 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
-      - run: npm ci
+      - run: npm cache clean -f
       - run: npm install npm@latest -g
+      - run: npm ci
       - run: npm config set registry http://registry.npmjs.org
       - run: npm run npm-build-package
       - run: cd dist/npm && npm publish
