@@ -6,9 +6,14 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      - name: Build Check 🔧
+        run: npm ci
+
+      - name: Verify Code 👌
         run: |
-          npm ci
           npm run lint
           npm run prettier:check
+
+      - name: Build 🔧
+        run: |
           npm run build:prod
+          npm run npm-build-package
