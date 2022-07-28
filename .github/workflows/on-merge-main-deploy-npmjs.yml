@@ -15,7 +15,6 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
-          scope: "@proangular"
       - run: npm ci
       - run: npm run npm-build-package:npmjs
       - run: cd dist/npm
