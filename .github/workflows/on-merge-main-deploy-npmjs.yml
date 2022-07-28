@@ -10,7 +10,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy 🚀
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
