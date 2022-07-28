@@ -10,12 +10,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Deploy 🚀
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
-      - name: Deploy 🚀
       - run: npm ci
       - run: npm run npm-build-package
       - run: npm publish --access public --folder dist/npm
