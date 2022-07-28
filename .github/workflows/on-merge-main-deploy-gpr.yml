@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
+      - name: Deploy 🚀
       - run: >
           git config --global url."https://${{ secrets.GITHUB_TOKEN
           }}@github.com/".insteadOf  ssh://git@github.com/
