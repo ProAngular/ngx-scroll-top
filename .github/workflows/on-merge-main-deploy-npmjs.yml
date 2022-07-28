@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  deploy:
+  deploy_npmjs_package:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
