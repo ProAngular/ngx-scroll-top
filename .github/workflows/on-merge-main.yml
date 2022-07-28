@@ -1,0 +1,41 @@
+name: "Verify and Deploy"
+on:
+  push:
+    branches:
+      - main
+jobs:
+  verify_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Checkout 🛎️
+        run: npm ci
+
+      - name: Verify Code 👌
+        run: |
+          npm run lint
+          npm run prettier:check
+
+      - name: Build 🔧
+        run: |
+          npm run build:prod
+          npm run npm-build-package
+
+      # https://docs.npmjs.com/about-packages-and-modules
+      - uses: actions/setup-node@v3
+      - name: Deploy Package to `npmjs` 🚀
+        with:
+          registry-url: "https://registry.npmjs.org"
+        run: npm publish --access public --folder dist/npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      # https://docs.github.com/en/packages
+      # https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+      - uses: actions/setup-node@v3
+      - name: Deploy Package to `gpr` 🚀
+        with:
+          registry-url: "https://npm.pkg.github.com"
+        run: npm publish --access public --folder dist/npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

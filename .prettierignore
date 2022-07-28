@@ -4,5 +4,6 @@
 # Except these files and directories:
 !.github/
 !.husky/
+!.scripts/
 !e2e/src
 !src/
