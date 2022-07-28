@@ -16,10 +16,6 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
-      - run: npm install npm@latest -g
-      - run: npm set registry=https://registry.npmjs.org/
-      - run: npm install -g https://tls-test.npmjs.com/tls-test-1.0.0.tgz
-      - run: npm install
       - run: npm run npm-build-package
       - run: cd dist/npm && npm publish
         env:
