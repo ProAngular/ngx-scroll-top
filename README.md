@@ -19,14 +19,6 @@
 
 Configurable, lightweight back to top button for Angular projects.
 
-# Compatibility
-
-| Angular version | @proangular/ngx-scroll-top | Install                                    |
-| --------------- | -------------------------- | ------------------------------------------ |
-| v14             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
-| v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
-| v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
-
 # Demo
 
 <p align="center">
@@ -89,6 +81,14 @@ Use package
 </ngx-scroll-top>
 ```
 
+# Compatibility
+
+| Angular version | @proangular/ngx-scroll-top | Install                                    |
+| --------------- | -------------------------- | ------------------------------------------ |
+| v14             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
+| v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
+| v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
+
 # Development
 
 1. Pull, create new branch, add changes.
@@ -103,12 +103,13 @@ Thank you for your contributions!
 As a husband and father of four children, your donations mean the world to me! Any donations are greatly appreciated and keep me going!
 
 [https://www.paypal.me/CodyTolene](https://www.paypal.me/CodyTolene)
+
 [https://github.com/sponsors/ProAngular](https://github.com/sponsors/ProAngular)
 
 # License
 
 Copyright &copy; 2022 [Cody Tolene](https://www.CodyTolene.com)
 
-All contents are licensed under the [MIT license].
+All content is licensed under the [MIT license].
 
 [mit license]: LICENSE
