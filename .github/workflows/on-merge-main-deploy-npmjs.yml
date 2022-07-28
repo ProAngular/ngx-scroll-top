@@ -16,9 +16,8 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
           scope: "@proangular"
-      - run: npm config set registry https://registry.npmjs.org/
       - run: npm ci
       - run: npm run npm-build-package:npmjs
-      - run: cd dist/npm && npm publish
+      - run: cd dist/npm && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
