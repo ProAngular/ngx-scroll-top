@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <header></header>
     <section>
-      <p *ngFor="let number of Array(88)">
+      <p *ngFor="let number of Array(20)">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimssy
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip expir
