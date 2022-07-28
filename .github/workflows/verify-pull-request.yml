@@ -16,4 +16,4 @@ jobs:
       - name: Build 🔧
         run: |
           npm run build:prod
-          npm run npm-build-package:npmjs
+          npm run npm-build-package

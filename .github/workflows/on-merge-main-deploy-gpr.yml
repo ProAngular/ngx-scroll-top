@@ -20,7 +20,7 @@ jobs:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
       - run: npm ci
-      - run: npm run npm-build-package:gpr
+      - run: npm run npm-build-package
       - run: cd dist/npm && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

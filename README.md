@@ -15,8 +15,5 @@
 [![Verify and Deploy to GitHub Packages](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-gpr.yml/badge.svg)](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-gpr.yml)
 [![Verify and Deploy to npmjs](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-npmjs.yml/badge.svg)](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-npmjs.yml)
 
-# ngx-scroll-top
-Configurable, lightweight back to top button for Angular projects
-
-# NPM
-Build package `npm run npm-build-package:npmjs && cd dist\npm && npm publish --access public`
+# Description
+Configurable, lightweight back to top button for Angular projects.
