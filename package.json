@@ -14,7 +14,8 @@
     "build:prod": "ng build --configuration production",
     "lint": "ng lint",
     "lint-staged": "lint-staged",
-    "npm-build-package": "ng-packagr -p ng-package.json",
+    "npm-build-package:gpr": "npm run npm-build-package:npmjs && ts-node --script-mode .scripts/prepare-gpr.ts",
+    "npm-build-package:npmjs": "ng-packagr -p ng-package.json",
     "postinstall": "is-ci || husky install",
     "prepare": "husky install",
     "prettier": "prettier --write .",
@@ -65,6 +66,7 @@
     "ng-packagr": "^14.1.0",
     "prettier": "^2.7.1",
     "rxjs": "~7.5.0",
+    "ts-node": "^10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~4.7.2",
     "zone.js": "~0.11.4"

@@ -20,7 +20,7 @@ jobs:
           node-version: "16.x"
           registry-url: "https://npm.pkg.github.com"
       - run: npm ci
-      - run: npm run npm-build-package
+      - run: npm run npm-build-package:npmjs
       - run: cd dist/npm && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
