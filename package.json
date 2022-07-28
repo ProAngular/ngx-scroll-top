@@ -1,6 +1,6 @@
 {
   "name": "ngx-scroll-top",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Configurable, lightweight back to top button for Angular projects.",
   "author": "Pro Angular <webmaster@proangular.com>",
   "homepage": "https://www.proangular.com",
