@@ -1,5 +1,5 @@
 {
-  "name": "@proangular/ngx-scroll-top",
+  "name": "ngx-scroll-top",
   "version": "1.0.4",
   "description": "Configurable, lightweight back to top button for Angular projects.",
   "author": "Pro Angular <webmaster@proangular.com>",
