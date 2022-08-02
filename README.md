@@ -9,23 +9,51 @@
   </h1>
 </p>
 
-[![npm version](https://badge.fury.io/js/@proangular%2Fngx-scroll-top.svg)](https://badge.fury.io/js/@proangular%2Fngx-scroll-top)
-[![NPM Downloads](https://img.shields.io/amo/dw/@proangular%252Fngx-scroll-top.svg)](https://www.npmjs.com/@proangular/ngx-scroll-top)
-[![Join the chat at https://gitter.im/ProAngular/community](https://badges.gitter.im/ProAngular/lobby.svg)](https://gitter.im/ProAngular/community)
-[![Verify and Deploy to GitHub Packages](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-gpr.yml/badge.svg)](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-gpr.yml)
-[![Verify and Deploy to npmjs](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-npmjs.yml/badge.svg)](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-npmjs.yml)
+[![npm](https://badgen.net/badge/icon/npm?icon=npm&label)](https://www.npmjs.com/@proangular/ngx-scroll-top)
+[![GitHub](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/ProAngular/ngx-scroll-top)
+[![TypeScript](https://badgen.net/badge/icon/TypeScript?icon=typescript&label)](https://github.com/ProAngular/ngx-scroll-top/search?l=typescript)
+[![npm Version](https://badge.fury.io/js/@proangular%2Fngx-scroll-top.svg)](https://www.npmjs.com/@proangular/ngx-scroll-top)
+[![Node Version](https://badgen.net/npm/node/@proangular/ngx-scroll-top)](https://www.npmjs.com/@proangular/ngx-scroll-top)
+[![Package Downloads](https://badgen.net/npm/dw/@proangular/ngx-scroll-top)](https://www.npmjs.com/@proangular/ngx-scroll-top)
+[![Size](https://img.shields.io/bundlephobia/minzip/@proangular/ngx-scroll-top.svg)](https://bundlephobia.com/result?p=ProAngular/ngx-scroll-top)
+[![Website Status](https://img.shields.io/website?down_color=lightgrey&down_message=Offline&label=Website&up_color=green&up_message=Online&url=https%3A%2F%2Fwww.proangular.com)](https://www.proangular.com)
+[![Gitter Chat](https://badges.gitter.im/ProAngular/lobby.svg)](https://gitter.im/ProAngular/community)
+[![Discord Chat](https://img.shields.io/discord/1003103094588055552?label=Discord)](https://discord.com/channels/1003103094588055552)
+[![Sponsors](https://img.shields.io/github/sponsors/proangular?label=Sponsors)](https://github.com/sponsors/ProAngular)
+[![License](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
+[![GitHub Package Status](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-gpr.yml/badge.svg)](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-gpr.yml)
+[![npmjs Package Status](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-npmjs.yml/badge.svg)](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-npmjs.yml)
 
-# Description
+## Table of Contents
+
+- [Description](#description)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Dependencies](#dependencies)
+- [Usage](#usage)
+- [Component API](#api)
+- [Compatibility](#compatibility)
+- [Issues & Contribution](#development)
+- [Donations](#donations)
+- [License](#license)
+
+<a name="description"/>
+
+## Description
 
 Configurable, lightweight back to top button for Angular projects.
 
-# Demo
+<a name="demo"/>
+
+## Demo
 
 <p align="center">
   <img src="src/assets/images/demo-scroll-top.gif" />
 </p>
 
-# Installation
+<a name="installation"/>
+
+## Installation
 
 ```bash
 ng add @proangular/ngx-scroll-top@latest
@@ -51,7 +79,19 @@ Import `NgxScrollTopModule` where needed
 export class AppModule { }
 ```
 
-# Usage
+<a name="dependencies"/>
+
+## Dependencies
+
+### Styling UX - Angular Material
+
+ You should have an Angular Material theme set up prior to using this. It's also possible to use this without an angular theme and style it yourself entirely!
+
+More information on theming Angular Material: https://material.angular.io/guide/theming
+
+<a name="usage"/>
+
+## Usage
 
 Default (blue button with white icon)
 ```html
@@ -73,7 +113,9 @@ Customization with optional inputs and icon
 >&#8686;</ngx-scroll-top>
 ```
 
-# Component API
+<a name="api"/>
+
+## Component API
 
 | Input                  | Value Typing          | Default Value           | Description                                                                                                                                        |
 | ---------------------- | --------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -87,7 +129,9 @@ Customization with optional inputs and icon
 | **width**              | string                | `'40px'`                | Width of back to top button in string px format.                                                                                                   |
 | **zIndex**             | number                | `999`                   | Style the `z-index` for the back to top button as needed for correct layer height adjustment. This can be useful when working with sticky headers. |
 
-# Compatibility
+<a name="compatibility"/>
+
+## Compatibility
 
 | Angular version | @proangular/ngx-scroll-top | Install                                    |
 | --------------- | -------------------------- | ------------------------------------------ |
@@ -95,7 +139,9 @@ Customization with optional inputs and icon
 | v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
 | v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
 
-# Development
+<a name="development"/>
+
+## Issues & Contribution
 
 Please submit all issues, and feature requests here: [https://github.com/ProAngular/ngx-scroll-top/issues](https://github.com/ProAngular/ngx-scroll-top/issues)
 
@@ -115,13 +161,17 @@ Contribution:
 
 Thank you for any and all contributions!
 
-# Donation
+<a name="donations"/>
+
+## Donation
 
 As a husband and father of four children, your donations mean the world to me! Any donations are greatly appreciated and keep me going!
 * [https://www.paypal.me/CodyTolene](https://www.paypal.me/CodyTolene)
 * [https://github.com/sponsors/ProAngular](https://github.com/sponsors/ProAngular)
 
-# License
+<a name="license"/>
+
+## License
 
 Copyright &copy; 2022 [Cody Tolene](https://www.CodyTolene.com)
 
