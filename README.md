@@ -16,6 +16,7 @@
 [![Node Version](https://badgen.net/npm/node/@proangular/ngx-scroll-top)](https://www.npmjs.com/@proangular/ngx-scroll-top)
 [![Package Downloads](https://badgen.net/npm/dw/@proangular/ngx-scroll-top)](https://www.npmjs.com/@proangular/ngx-scroll-top)
 [![Size](https://img.shields.io/bundlephobia/minzip/@proangular/ngx-scroll-top.svg)](https://bundlephobia.com/result?p=ProAngular/ngx-scroll-top)
+[![Demo Status](https://badgen.net/badge/Demo/Online/green)](https://www.ProAngular.com/demos/ngx-scroll-top)
 [![Website Status](https://img.shields.io/website?down_color=lightgrey&down_message=Offline&label=Website&up_color=green&up_message=Online&url=https%3A%2F%2Fwww.proangular.com)](https://www.proangular.com)
 [![Gitter Chat](https://badges.gitter.im/ProAngular/lobby.svg)](https://gitter.im/ProAngular/community)
 [![Discord Chat](https://img.shields.io/discord/1003103094588055552?label=Discord)](https://discord.com/channels/1003103094588055552)
@@ -50,6 +51,8 @@ Configurable, lightweight back to top button for Angular projects.
 <p align="center">
   <img src="src/assets/images/demo-scroll-top.gif" />
 </p>
+
+Live demo here: [https://www.ProAngular.com/demos/ngx-scroll-top](https://www.ProAngular.com/demos/ngx-scroll-top)
 
 <a name="installation"/>
 
