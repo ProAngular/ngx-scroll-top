@@ -1,21 +1,11 @@
 import { Component } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'ngx-header',
-  template: `
-    <header>
-      <a href="https://www.ProAngular.com" target="_blank">
-        <img src="assets/images/pro-angular-logo-full.png" />
-      </a>
-    </header>
-  `,
-  styles: [
-    `
-      header {
-        background-color: #1775d1;
-        padding: 0.5rem 1rem;
-      }
-    `,
-  ],
+  standalone: true,
+  imports: [MatToolbarModule],
+  styleUrl: './header.component.scss',
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent {}

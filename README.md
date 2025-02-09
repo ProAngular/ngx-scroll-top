@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.ProAngular.com" target="_blank">
-    <img src="src/assets/images/pro-angular-logo.png" />
+    <img src="public/images/pro-angular-logo.png" />
   </a>
   <h1 align="center">
     <a href="https://www.ProAngular.com" target="_blank">
@@ -30,78 +30,85 @@
 - [Description](#description)
 - [Demo](#demo)
 - [Installation](#installation)
-- [Dependencies](#dependencies)
+  - [Prerequisites](#prerequisites)
+  - [Install Scroll Top Component](#install-scroll-top-component)
 - [Usage](#usage)
 - [Component API](#api)
 - [Compatibility](#compatibility)
 - [Issues & Contribution](#development)
 - [Donations](#donations)
-- [License](#license)
+- [Licensing](#licensing)
+- [Wrapping Up](#wrapping-up)
 
-<a name="description"/>
-
-## Description
+## Description <a name="description"></a>
 
 Configurable, lightweight back to top button for Angular projects.
 
-<a name="demo"/>
+<p align="right">[ <a href="#index">Index</a> ]</p>
 
-## Demo
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+## Demo <a name="demo"></a>
 
 <p align="center">
-  <img src="src/assets/images/demo-scroll-top.gif" />
+  <img src="public/images/demo-scroll-top.gif" />
 </p>
 
-Live demo here: [https://www.ProAngular.com/demos/ngx-scroll-top](https://www.ProAngular.com/demos/ngx-scroll-top)
+Live demo here:
+[https://www.ProAngular.com/demos/ngx-scroll-top](https://www.ProAngular.com/demos/ngx-scroll-top)
 
-<a name="installation"/>
+<p align="right">[ <a href="#index">Index</a> ]</p>
 
-## Installation
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+## Installation <a name="installation"></a>
+
+Using Node Package Manager ([NPM][url-node-js]) in a new terminal window run the
+following commands to install the required dependencies.
+
+### Prerequisites <a name="prerequisites"></a>
+
+**Angular Material**
+
+More information on theming Angular Material:
+https://material.angular.io/guide/theming
+
+```bash
+ng add @angular/material
+```
+
+### Install Scroll Top Component <a name="install-scroll-top-component"></a>
 
 ```bash
 ng add @proangular/ngx-scroll-top@latest
 ```
+
 or
+
 ```bash
 npm install @proangular/ngx-scroll-top --save
 ```
 
-Import `NgxScrollTopModule` where needed
-```diff
-...
-+ import { NgxScrollTopModule } from '@proangular/ngx-scroll-top';
-...
+<p align="right">[ <a href="#index">Index</a> ]</p>
 
-@NgModule({
-  imports: [
-    ...
-+   NgxScrollTopModule
-  ],
-  ...
-})
-export class AppModule { }
-```
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
 
-<a name="dependencies"/>
-
-## Dependencies
-
-### Styling UX - Angular Material
-
- You should have an Angular Material theme set up prior to using this. It's also possible to use this without an angular theme and style it yourself entirely!
-
-More information on theming Angular Material: https://material.angular.io/guide/theming
-
-<a name="usage"/>
-
-## Usage
+## Usage <a name="usage"></a>
 
 Default (blue button with white icon)
+
 ```html
 <ngx-scroll-top></ngx-scroll-top>
 ```
 
 Customization with optional inputs and icon
+
 ```html
 <ngx-scroll-top
   backgroundColor="#0D58C0"
@@ -113,12 +120,17 @@ Customization with optional inputs and icon
   position="left"
   [zIndex]="1"
   width="3rem"
->&#8686;</ngx-scroll-top>
+  >&#8686;</ngx-scroll-top
+>
 ```
 
-<a name="api"/>
+<p align="right">[ <a href="#index">Index</a> ]</p>
 
-## Component API
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+## Component API <a name="api"></a>
 
 | Input                  | Value Typing          | Default Value           | Description                                                                                                                                        |
 | ---------------------- | --------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -132,52 +144,95 @@ Customization with optional inputs and icon
 | **width**              | string                | `'40px'`                | Width of back to top button in string px format.                                                                                                   |
 | **zIndex**             | number                | `999`                   | Style the `z-index` for the back to top button as needed for correct layer height adjustment. This can be useful when working with sticky headers. |
 
-<a name="compatibility"/>
+<p align="right">[ <a href="#index">Index</a> ]</p>
 
-## Compatibility
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
 
-| Angular version | @proangular/ngx-scroll-top | Install                                    |
-| --------------- | -------------------------- | ------------------------------------------ |
-| v14             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
-| v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
-| v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
+## Compatibility <a name="compatibility"></a>
 
-<a name="development"/>
+| Angular version | @proangular/ngx-scroll-top | Status     |
+| --------------- | -------------------------- | ---------- |
+| v19             | v19.0.0                    | Compatible |
+| v18             | ------                     | Untested   |
+| v17             | ------                     | Untested   |
+| v16             | ------                     | Untested   |
+| v15             | ------                     | Untested   |
+| v14             | v1.x.x                     | Compatible |
+| v13             | v1.x.x                     | Compatible |
+| v12             | v1.x.x                     | Compatible |
 
-## Issues & Contribution
+<p align="right">[ <a href="#index">Index</a> ]</p>
 
-Please submit all issues, and feature requests here: [https://github.com/ProAngular/ngx-scroll-top/issues](https://github.com/ProAngular/ngx-scroll-top/issues)
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+## Issues & Contribution <a name="development"></a>
+
+Please submit all issues, and feature requests here:
+[https://github.com/ProAngular/ngx-scroll-top/issues](https://github.com/ProAngular/ngx-scroll-top/issues)
 
 Contribution:
 
 1. Clone the repo and create a new branch:
-  * `git clone https://github.com/ProAngular/ngx-scroll-top.git`
-  * `git checkout -b username/feature-or-bug-description`
-2. Bump up the version of package in `package.json` and `package-lock.json`, commit all changes, push.
-  * `git add -A`
-  * `git commit -m "My commit message"`
-  * `git push origin username/feature-or-bug-description`
-3. Submit code in published PR for review and approval. Add a good description and link any possible user stories or bugs.
-  * [Create a new pull request](https://github.com/ProAngular/ngx-scroll-top/compare).
+
+- `git clone https://github.com/ProAngular/ngx-scroll-top.git`
+- `git checkout -b username/feature-or-bug-description`
+
+2. Bump up the version of package in `package.json` and `package-lock.json`,
+   commit all changes, push.
+
+- `git add -A`
+- `git commit -m "My commit message"`
+- `git push origin username/feature-or-bug-description`
+
+3. Submit code in published PR for review and approval. Add a good description
+   and link any possible user stories or bugs.
+
+- [Create a new pull request](https://github.com/ProAngular/ngx-scroll-top/compare).
+
 4. Allow CI actions to completely run and verify files.
 5. Add/ping reviewers and await approval.
 
 Thank you for any and all contributions!
 
-<a name="donations"/>
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
 
-## Donation
+## Licensing <a name="licensing"></a>
 
-As a husband and father of four children, your donations mean the world to me! Any donations are greatly appreciated and keep me going!
-* [https://www.paypal.me/CodyTolene](https://www.paypal.me/CodyTolene)
-* [https://github.com/sponsors/ProAngular](https://github.com/sponsors/ProAngular)
+This project is licensed under the **MIT** License. See the
+[LICENSE](LICENSE.md) file for the pertaining license text.
 
-<a name="license"/>
+`SPDX-License-Identifier: MIT`
 
-## License
+<p align="right">[ <a href="#index">Index</a> ]</p>
 
-Copyright &copy; 2022 [Cody Tolene](https://www.CodyTolene.com)
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
 
-All content is licensed under the [MIT license].
+## Wrapping Up <a name="wrapping-up"></a>
 
-[mit license]: LICENSE
+Thank you to the entire Angular team and community for such a great framework to
+build upon. If you have any questions, please let me know by opening an issue
+[here][url-new-issue].
+
+| Type                                                                      | Info                                                           |
+| :------------------------------------------------------------------------ | :------------------------------------------------------------- |
+| <img width="48" src=".github/images/ng-icons/email.svg" />                | webmaster@codytolene.com                                       |
+| <img width="48" src=".github/images/simple-icons/github.svg" />           | https://github.com/sponsors/CodyTolene                         |
+| <img width="48" src=".github/images/simple-icons/buymeacoffee.svg" />     | https://www.buymeacoffee.com/codytolene                        |
+| <img width="48" src=".github/images/simple-icons/bitcoin-btc-logo.svg" /> | bc1qfx3lvspkj0q077u3gnrnxqkqwyvcku2nml86wmudy7yf2u8edmqq0a5vnt |
+
+Fin. Happy programming friend!
+
+Cody Tolene
+
+<!-- LINKS -->
+
+[url-new-issue]: https://github.com/ProAngular/ngx-scroll-top/issues
+[url-node-js]: https://nodejs.org/

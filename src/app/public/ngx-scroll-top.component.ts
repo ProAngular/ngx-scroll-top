@@ -1,4 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
+import { CommonModule } from '@angular/common';
 import {
   Component,
   HostBinding,
@@ -9,33 +10,8 @@ import {
 
 @Component({
   selector: 'ngx-scroll-top',
-  template: `
-    <button
-      *ngIf="!isHidden"
-      (click)="scrollTop()"
-      [style.background-color]="backgroundColor"
-      [@easeInOutAnimation]
-    >
-      <div class="content" #content>
-        <ng-content></ng-content>
-      </div>
-      <svg
-        *ngIf="!content?.innerHTML?.length"
-        class="default-content"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <desc>
-          https://fonts.gstatic.com/s/i/materialicons/expand_less/v12/24px.svg
-        </desc>
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-      </svg>
-    </button>
-  `,
+  templateUrl: './ngx-scroll-top.component.html',
+  styleUrl: './ngx-scroll-top.component.scss',
   animations: [
     trigger('easeInOutAnimation', [
       transition(':enter', [
@@ -48,67 +24,8 @@ import {
       ]),
     ]),
   ],
-  styles: [
-    `
-      :host {
-        position: fixed;
-        transition: all 0.1s ease-in-out;
-      }
-      div.content {
-        font-size: inherit;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        border-radius: 50%;
-      }
-      div.content,
-      div.content > * {
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        max-height: 100%;
-      }
-      button {
-        font-size: inherit;
-        overflow: hidden;
-        display: inline-block;
-        position: relative;
-        transition: all 0.1s ease-in-out;
-        color: inherit;
-        box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-          0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-          0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-        user-select: none;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        box-sizing: border-box;
-        white-space: nowrap;
-        text-decoration: none;
-        vertical-align: baseline;
-        text-align: center;
-        margin: 0;
-        border-radius: 50%;
-        padding: 0;
-        flex-shrink: 0;
-      }
-      button,
-      button > svg {
-        width: 100%;
-        height: 100%;
-      }
-      svg.default-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    `,
-  ],
+  imports: [CommonModule],
+  standalone: true,
 })
 export class NgxScrollTopComponent implements OnInit {
   /**

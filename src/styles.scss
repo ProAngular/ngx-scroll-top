@@ -1,6 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'app/styles/html.scss';
+@use 'app/styles/body.scss';
+@use 'app/styles/headers.scss';
 
-body {
-  padding: 0;
-  margin: 0;
-}
+@use 'app/styles/material.scss';
+@use 'app/styles/material-forms.scss';
