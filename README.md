@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.ProAngular.com" target="_blank">
-    <img src="src/assets/images/pro-angular-logo.png" />
+    <img src="public/pro-angular-logo.png" />
   </a>
   <h1 align="center">
     <a href="https://www.ProAngular.com" target="_blank">
@@ -49,10 +49,11 @@ Configurable, lightweight back to top button for Angular projects.
 ## Demo
 
 <p align="center">
-  <img src="src/assets/images/demo-scroll-top.gif" />
+  <img src="public/demo-scroll-top.gif" />
 </p>
 
-Live demo here: [https://www.ProAngular.com/demos/ngx-scroll-top](https://www.ProAngular.com/demos/ngx-scroll-top)
+Live demo here:
+[https://www.ProAngular.com/demos/ngx-scroll-top](https://www.ProAngular.com/demos/ngx-scroll-top)
 
 <a name="installation"/>
 
@@ -61,25 +62,37 @@ Live demo here: [https://www.ProAngular.com/demos/ngx-scroll-top](https://www.Pr
 ```bash
 ng add @proangular/ngx-scroll-top@latest
 ```
+
 or
+
 ```bash
 npm install @proangular/ngx-scroll-top --save
 ```
 
-Import `NgxScrollTopModule` where needed
+Import `NgxScrollTopComponent` where needed
+
 ```diff
-...
-+ import { NgxScrollTopModule } from '@proangular/ngx-scroll-top';
++ import { NgxScrollTopComponent } from '@proangular/ngx-scroll-top';
+
+// Import to module
+@NgModule({
+  ...
+  imports: [
++   NgxScrollTopComponent,
+    ...
+  ],
+})
+
 ...
 
-@NgModule({
-  imports: [
-    ...
-+   NgxScrollTopModule
-  ],
+// or component
+@Component({
   ...
+  imports: [
++   NgxScrollTopComponent,
+    ...
+  ],
 })
-export class AppModule { }
 ```
 
 <a name="dependencies"/>
@@ -88,20 +101,24 @@ export class AppModule { }
 
 ### Styling UX - Angular Material
 
- You should have an Angular Material theme set up prior to using this. It's also possible to use this without an angular theme and style it yourself entirely!
+You should have an Angular Material theme set up prior to using this. It's also
+possible to use this without an angular theme and style it yourself entirely!
 
-More information on theming Angular Material: https://material.angular.io/guide/theming
+More information on theming Angular Material:
+https://material.angular.io/guide/theming
 
 <a name="usage"/>
 
 ## Usage
 
 Default (blue button with white icon)
+
 ```html
 <ngx-scroll-top></ngx-scroll-top>
 ```
 
 Customization with optional inputs and icon
+
 ```html
 <ngx-scroll-top
   backgroundColor="#0D58C0"
@@ -113,7 +130,8 @@ Customization with optional inputs and icon
   position="left"
   [zIndex]="1"
   width="3rem"
->&#8686;</ngx-scroll-top>
+  >&#8686;</ngx-scroll-top
+>
 ```
 
 <a name="api"/>
@@ -136,29 +154,43 @@ Customization with optional inputs and icon
 
 ## Compatibility
 
-| Angular version | @proangular/ngx-scroll-top | Install                                    |
-| --------------- | -------------------------- | ------------------------------------------ |
-| v14             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
-| v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
-| v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@latest` |
+| Angular version | @proangular/ngx-scroll-top | Status     |
+| --------------- | -------------------------- | ---------- |
+| v19             | v19.0.0                    | Compatible |
+| v18             | ------                     | Untested   |
+| v17             | ------                     | Untested   |
+| v16             | ------                     | Untested   |
+| v15             | ------                     | Untested   |
+| v14             | v1.x.x                     | Compatible |
+| v13             | v1.x.x                     | Compatible |
+| v12             | v1.x.x                     | Compatible |
 
 <a name="development"/>
 
 ## Issues & Contribution
 
-Please submit all issues, and feature requests here: [https://github.com/ProAngular/ngx-scroll-top/issues](https://github.com/ProAngular/ngx-scroll-top/issues)
+Please submit all issues, and feature requests here:
+[https://github.com/ProAngular/ngx-scroll-top/issues](https://github.com/ProAngular/ngx-scroll-top/issues)
 
 Contribution:
 
 1. Clone the repo and create a new branch:
-  * `git clone https://github.com/ProAngular/ngx-scroll-top.git`
-  * `git checkout -b username/feature-or-bug-description`
-2. Bump up the version of package in `package.json` and `package-lock.json`, commit all changes, push.
-  * `git add -A`
-  * `git commit -m "My commit message"`
-  * `git push origin username/feature-or-bug-description`
-3. Submit code in published PR for review and approval. Add a good description and link any possible user stories or bugs.
-  * [Create a new pull request](https://github.com/ProAngular/ngx-scroll-top/compare).
+
+- `git clone https://github.com/ProAngular/ngx-scroll-top.git`
+- `git checkout -b username/feature-or-bug-description`
+
+2. Bump up the version of package in `package.json` and `package-lock.json`,
+   commit all changes, push.
+
+- `git add -A`
+- `git commit -m "My commit message"`
+- `git push origin username/feature-or-bug-description`
+
+3. Submit code in published PR for review and approval. Add a good description
+   and link any possible user stories or bugs.
+
+- [Create a new pull request](https://github.com/ProAngular/ngx-scroll-top/compare).
+
 4. Allow CI actions to completely run and verify files.
 5. Add/ping reviewers and await approval.
 
@@ -168,9 +200,11 @@ Thank you for any and all contributions!
 
 ## Donation
 
-As a husband and father of four children, your donations mean the world to me! Any donations are greatly appreciated and keep me going!
-* [https://www.paypal.me/CodyTolene](https://www.paypal.me/CodyTolene)
-* [https://github.com/sponsors/ProAngular](https://github.com/sponsors/ProAngular)
+As a husband and father of four children, your donations mean the world to me!
+Any donations are greatly appreciated and keep me going!
+
+- [https://www.paypal.me/CodyTolene](https://www.paypal.me/CodyTolene)
+- [https://github.com/sponsors/ProAngular](https://github.com/sponsors/ProAngular)
 
 <a name="license"/>
 
