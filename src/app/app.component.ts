@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -9,12 +9,11 @@ import { NgxScrollTopComponent } from './public/ngx-scroll-top.component';
   selector: 'ngx-root',
   imports: [
     BodyComponent,
-    CommonModule,
     FooterComponent,
     HeaderComponent,
     NgxScrollTopComponent,
-    RouterOutlet,
-  ],
+    RouterOutlet
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

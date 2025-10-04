@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { CommonModule } from '@angular/common';
+
 import {
   Component,
   HostBinding,
@@ -24,7 +24,7 @@ import {
       ]),
     ]),
   ],
-  imports: [CommonModule],
+  imports: [],
   standalone: true,
 })
 export class NgxScrollTopComponent implements OnInit {

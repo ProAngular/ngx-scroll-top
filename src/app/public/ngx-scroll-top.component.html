@@ -1,25 +1,27 @@
-<button
-  *ngIf="!isHidden"
-  (click)="scrollTop()"
-  [style.background-color]="backgroundColor"
-  [@easeInOutAnimation]
->
-  <div class="content" #content>
-    <ng-content></ng-content>
-  </div>
-  <svg
-    *ngIf="!content?.innerHTML?.length"
-    class="default-content"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <desc>
-      https://fonts.gstatic.com/s/i/materialicons/expand_less/v12/24px.svg
-    </desc>
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-  </svg>
-</button>
+@if (!isHidden) {
+  <button
+    (click)="scrollTop()"
+    [style.background-color]="backgroundColor"
+    [@easeInOutAnimation]
+    >
+    <div class="content" #content>
+      <ng-content></ng-content>
+    </div>
+    @if (!content?.innerHTML?.length) {
+      <svg
+        class="default-content"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+        focusable="false"
+        >
+        <desc>
+          https://fonts.gstatic.com/s/i/materialicons/expand_less/v12/24px.svg
+        </desc>
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+      </svg>
+    }
+  </button>
+}
