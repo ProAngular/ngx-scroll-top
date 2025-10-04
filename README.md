@@ -152,17 +152,22 @@ Customization with optional inputs and icon
 
 ## Compatibility <a name="compatibility"></a>
 
-| Angular version | @proangular/ngx-scroll-top | Install                                     |
-| --------------- | -------------------------- | ------------------------------------------- |
-| v20             | v20.0.0                    | `ng add @proangular/ngx-scroll-top@^20.0.0` |
-| v19             | v19.0.0                    | `ng add @proangular/ngx-scroll-top@^19.0.0` |
-| v18             | ------                     | Untested                                    |
-| v17             | ------                     | Untested                                    |
-| v16             | ------                     | Untested                                    |
-| v15             | ------                     | Untested                                    |
-| v14             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8`   |
-| v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8`   |
-| v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8`   |
+| <<<<<<< HEAD                                | Angular version | @proangular/ngx-scroll-top                | Install         |            |
+| ------------------------------------------- | --------------- | ----------------------------------------- | --------------- | ---------- | ---------- | ---------- | --- | ------ | -------- | --- |
+| ------------------------------------------- |                 | v20                                       | v20.0.0         |
+| `ng add @proangular/ngx-scroll-top@^20.0.0` |                 | v19                                       | v19.0.0         |
+| `ng add @proangular/ngx-scroll-top@^19.0.0` |                 | v18                                       | ------          | Untested   |            | v17        |
+| ------                                      | Untested        |                                           | v16             | ------     | Untested   |            | v15 | ------ | Untested |     |
+| v14                                         | v1.x.x          | `ng add @proangular/ngx-scroll-top@1.1.8` |                 | v13        | v1.x.x     |
+| `ng add @proangular/ngx-scroll-top@1.1.8`   |                 | v12                                       | v1.x.x          |
+| `ng add @proangular/ngx-scroll-top@1.1.8`   | =======         | Angular version                           |
+| @proangular/ngx-scroll-top                  | Status          |                                           | --------------- |
+| --------------------------                  | ----------      |                                           | v19             | v19.0.0    | Compatible |            | v18 |
+| ------                                      | Untested        |                                           | v17             | ------     | Untested   |            | v16 | ------ | Untested |     |
+| v15                                         | ------          | Untested                                  |                 | v14        | v1.x.x     | Compatible |     | v13    | v1.x.x   |
+| Compatible                                  |                 | v12                                       | v1.x.x          | Compatible |
+
+> > > > > > > main
 
 <p align="right">[ <a href="#index">Index</a> ]</p>
 
