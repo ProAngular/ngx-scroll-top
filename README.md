@@ -1,13 +1,17 @@
-<p align="center">
+<div align="center">
   <a href="https://www.ProAngular.com" target="_blank">
-    <img src="public/images/pro-angular-logo.png" />
+    <img src="https://raw.githubusercontent.com/ProAngular/ngx-scroll-top/refs/heads/main/public/images/pro-angular-logo.png" />
   </a>
   <h1 align="center">
-    <a href="https://www.ProAngular.com" target="_blank">
-      Pro Angular
-    </a>: Scroll Top Button
+    <a href="https://www.ProAngular.com" target="_blank">Pro Angular</a>: ngx-scroll-top
   </h1>
-</p>
+  <a align="center" href="https://github.com/ProAngular/ngx-scroll-top" target="_blank">
+    View GitHub Repository
+  </a>
+  <p align="center">
+    Configurable, lightweight back to top button for Angular projects.
+  </p>
+</div>
 
 [![npm](https://badgen.net/badge/icon/npm?icon=npm&label)](https://www.npmjs.com/@proangular/ngx-scroll-top)
 [![GitHub](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/ProAngular/ngx-scroll-top)
@@ -36,7 +40,6 @@
 - [Component API](#api)
 - [Compatibility](#compatibility)
 - [Issues & Contribution](#development)
-- [Donations](#donations)
 - [Licensing](#licensing)
 - [Wrapping Up](#wrapping-up)
 
@@ -53,7 +56,7 @@ Configurable, lightweight back to top button for Angular projects.
 ## Demo <a name="demo"></a>
 
 <p align="center">
-  <img src="public/images/demo-scroll-top.gif" />
+  <img src="https://raw.githubusercontent.com/ProAngular/ngx-scroll-top/refs/heads/main/public/images/demo-scroll-top.gif" />
 </p>
 
 Live demo here:
@@ -152,17 +155,17 @@ Customization with optional inputs and icon
 
 ## Compatibility <a name="compatibility"></a>
 
-| Angular version | @proangular/ngx-scroll-top | Install                                     |
-| --------------- | -------------------------- | ------------------------------------------- |
-| v20             | v20.0.0                    | `ng add @proangular/ngx-scroll-top@^20.0.0` |
-| v19             | v19.0.0                    | `ng add @proangular/ngx-scroll-top@^19.0.0` |
-| v18             | ------                     | Untested                                    |
-| v17             | ------                     | Untested                                    |
-| v16             | ------                     | Untested                                    |
-| v15             | ------                     | Untested                                    |
-| v14             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8`   |
-| v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8`   |
-| v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8`   |
+| Angular version | @proangular/ngx-scroll-top | Install                                   |
+| --------------- | -------------------------- | ----------------------------------------- |
+| v20             | v20.X                      | `ng add @proangular/ngx-scroll-top@^20`   |
+| v19             | v19.X                      | `ng add @proangular/ngx-scroll-top@^19`   |
+| v18             | ------                     | Untested                                  |
+| v17             | ------                     | Untested                                  |
+| v16             | ------                     | Untested                                  |
+| v15             | ------                     | Untested                                  |
+| v14             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
+| v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
+| v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
 
 <p align="right">[ <a href="#index">Index</a> ]</p>
 
@@ -222,12 +225,12 @@ Thank you to the entire Angular team and community for such a great framework to
 build upon. If you have any questions, please let me know by opening an issue
 [here][url-new-issue].
 
-| Type                                                                      | Info                                                           |
-| :------------------------------------------------------------------------ | :------------------------------------------------------------- |
-| <img width="48" src=".github/images/ng-icons/email.svg" />                | webmaster@codytolene.com                                       |
-| <img width="48" src=".github/images/simple-icons/github.svg" />           | https://github.com/sponsors/CodyTolene                         |
-| <img width="48" src=".github/images/simple-icons/buymeacoffee.svg" />     | https://www.buymeacoffee.com/codytolene                        |
-| <img width="48" src=".github/images/simple-icons/bitcoin-btc-logo.svg" /> | bc1qfx3lvspkj0q077u3gnrnxqkqwyvcku2nml86wmudy7yf2u8edmqq0a5vnt |
+| Type                                                                                                                                                  | Info                                                           |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------- |
+| <img width="48" src="https://raw.githubusercontent.com/ProAngular/ngx-scroll-top/refs/heads/main/.github/images/ng-icons/email.svg" />                | webmaster@codytolene.com                                       |
+| <img width="48" src="https://raw.githubusercontent.com/ProAngular/ngx-scroll-top/refs/heads/main/.github/images/simple-icons/github.svg" />           | https://github.com/sponsors/CodyTolene                         |
+| <img width="48" src="https://raw.githubusercontent.com/ProAngular/ngx-scroll-top/refs/heads/main/.github/images/simple-icons/buymeacoffee.svg" />     | https://www.buymeacoffee.com/codytolene                        |
+| <img width="48" src="https://raw.githubusercontent.com/ProAngular/ngx-scroll-top/refs/heads/main/.github/images/simple-icons/bitcoin-btc-logo.svg" /> | bc1qfx3lvspkj0q077u3gnrnxqkqwyvcku2nml86wmudy7yf2u8edmqq0a5vnt |
 
 Fin. Happy programming friend!
 
