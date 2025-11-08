@@ -6,7 +6,7 @@
     <a href="https://www.ProAngular.com" target="_blank">Pro Angular</a>: ngx-scroll-top
   </h1>
   <a align="center" href="https://github.com/ProAngular/ngx-scroll-top" target="_blank">
-    View Github Repository
+    View GitHub Repository
   </a>
   <p align="center">
     Configurable, lightweight back to top button for Angular projects.
