@@ -56,7 +56,7 @@
 <!---------------------------------------------------------------------------->
 
 <p align="center">
-  <code>ng add @angular/material</code>
+  <code>ng add @proangular/ngx-scroll-top</code>
 </p>
 <p align="center">
   <img src="https://raw.githubusercontent.com/ProAngular/ngx-scroll-top/refs/heads/main/public/images/demo-scroll-top.gif" />
