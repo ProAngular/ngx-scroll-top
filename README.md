@@ -5,27 +5,26 @@
   <h1 align="center">
     <a href="https://www.ProAngular.com" target="_blank">Pro Angular</a>: ngx-scroll-top
   </h1>
-  <a align="center" href="https://github.com/ProAngular/ngx-scroll-top" target="_blank">
-    View GitHub Repository
-  </a>
+  <p align="center">
+    <a href="https://github.com/ProAngular/ngx-scroll-top" target="_blank">
+      ProAngular
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="https://github.com/ProAngular/ngx-scroll-top" target="_blank">
+      GitHub
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="https://www.npmjs.com/@proangular/ngx-scroll-top" target="_blank">
+      NPM
+    </a>
+  </p>
   <p align="center">
     Configurable, lightweight back to top button for Angular projects.
   </p>
 </div>
 
-[![npm](https://badgen.net/badge/icon/npm?icon=npm&label)](https://www.npmjs.com/@proangular/ngx-scroll-top)
-[![GitHub](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/ProAngular/ngx-scroll-top)
-[![TypeScript](https://badgen.net/badge/icon/TypeScript?icon=typescript&label)](https://github.com/ProAngular/ngx-scroll-top/search?l=typescript)
 [![npm Version](https://badge.fury.io/js/@proangular%2Fngx-scroll-top.svg)](https://www.npmjs.com/@proangular/ngx-scroll-top)
-[![Node Version](https://badgen.net/npm/node/@proangular/ngx-scroll-top)](https://www.npmjs.com/@proangular/ngx-scroll-top)
-[![Package Downloads](https://badgen.net/npm/dw/@proangular/ngx-scroll-top)](https://www.npmjs.com/@proangular/ngx-scroll-top)
 [![Size](https://img.shields.io/bundlephobia/minzip/@proangular/ngx-scroll-top.svg)](https://bundlephobia.com/result?p=ProAngular/ngx-scroll-top)
-[![Demo Status](https://badgen.net/badge/Demo/Online/green)](https://www.ProAngular.com/demos/ngx-scroll-top)
-[![Website Status](https://img.shields.io/website?down_color=lightgrey&down_message=Offline&label=Website&up_color=green&up_message=Online&url=https%3A%2F%2Fwww.proangular.com)](https://www.proangular.com)
-[![Gitter Chat](https://badges.gitter.im/ProAngular/lobby.svg)](https://gitter.im/ProAngular/community)
-[![Discord Chat](https://img.shields.io/discord/1003103094588055552?label=Discord)](https://discord.com/channels/1003103094588055552)
-[![Sponsors](https://img.shields.io/github/sponsors/proangular?label=Sponsors)](https://github.com/sponsors/ProAngular)
 [![License](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
+
 [![GitHub Package Status](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-gpr.yml/badge.svg)](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-gpr.yml)
 [![npmjs Package Status](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-npmjs.yml/badge.svg)](https://github.com/ProAngular/ngx-scroll-top/actions/workflows/on-merge-main-deploy-npmjs.yml)
 
