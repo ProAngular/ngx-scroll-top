@@ -1,12 +1,10 @@
-# Github Package Deployment
-# https://docs.github.com/en/packages
-# https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
 name: Verify and Deploy to GitHub Packages
+
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
+
 jobs:
   deploy_gpr_package:
     runs-on: ubuntu-latest
