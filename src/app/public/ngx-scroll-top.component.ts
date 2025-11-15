@@ -2,9 +2,9 @@ import {
   Component,
   HostBinding,
   HostListener,
-  input,
   Input,
   OnInit,
+  input,
   signal,
 } from '@angular/core';
 
@@ -107,7 +107,7 @@ export class NgxScrollTopComponent implements OnInit {
   /**
    * State of button animation: "idle", "fading-in", "fading-out".
    */
-  protected fadeState = signal<'idle'|'fading-in'|'fading-out'>('idle');
+  protected fadeState = signal<'idle' | 'fading-in' | 'fading-out'>('idle');
 
   /** Default padding from screen edges. */
   private readonly defaultPadding = '16px';
