@@ -2,7 +2,6 @@ import {
   Component,
   HostBinding,
   HostListener,
-  Input,
   OnInit,
   input,
   signal,
@@ -56,7 +55,10 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * Tip: Define any `'x'` css property available for `'color: x'`
    */
-  @Input() @HostBinding('style.color') public fontColor = '#FFFFFF';
+  public readonly fontColor = input('#FFFFFF');
+  @HostBinding('style.color') protected get hostFontColor(): string {
+    return this.fontColor();
+  }
 
   /**
    * The font size for the nested content within the back to top button.
@@ -67,14 +69,20 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * Tip: Define any `'x'` css property available for `'font-size: x'`
    */
-  @Input() @HostBinding('style.font-size') public fontSize = '16px';
+  public readonly fontSize = input('16px');
+  @HostBinding('style.font-size') protected get hostFontSize(): string {
+    return this.fontSize();
+  }
 
   /**
    * Height of back to top button in string format.
    *
    * @example `'32px'` or `'2rem'`
    */
-  @Input() @HostBinding('style.height') public height = '40px';
+  public readonly height = input('40px');
+  @HostBinding('style.height') protected get hostHeight(): string {
+    return this.height();
+  }
 
   /**
    * Position on-screen where the back to top button is displayed.
@@ -88,7 +96,10 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * @example `'32px'` or `'2rem'`
    */
-  @Input() @HostBinding('style.width') public width = '40px';
+  public readonly width = input('40px');
+  @HostBinding('style.width') protected get hostWidth(): string {
+    return this.width();
+  }
 
   /**
    * Style the `z-index` for the back to top button as needed for correct layer
@@ -96,7 +107,10 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * Default: `999`
    */
-  @Input() @HostBinding('style.z-index') public zIndex = 999;
+  public readonly zIndex = input(999);
+  @HostBinding('style.z-index') protected get hostZIndex(): number {
+    return this.zIndex();
+  }
 
   /**
    * Whether button should be rendered in DOM.
@@ -173,7 +187,7 @@ export class NgxScrollTopComponent implements OnInit {
       const bottomY = docEl.scrollHeight - docEl.clientHeight;
       const bottomOffset = parsePxStringToInt(this.bottomOffset());
       const distanceFromBottom = bottomY - scrollY;
-      const halfHeight = parsePxStringToInt(this.height) / 2;
+      const halfHeight = parsePxStringToInt(this.height()) / 2;
       const defaultPadding = parsePxStringToInt(this.defaultPadding);
 
       if (distanceFromBottom + (halfHeight - defaultPadding) < bottomOffset) {
