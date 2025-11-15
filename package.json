@@ -1,6 +1,6 @@
 {
   "name": "@proangular/ngx-scroll-top",
-  "version": "20.4.1",
+  "version": "20.5.0",
   "description": "Configurable, lightweight back to top button for Angular projects.",
   "author": "Pro Angular <webmaster@proangular.com>",
   "homepage": "https://www.proangular.com",
@@ -25,7 +25,6 @@
     "watch": "ng build --watch --configuration development"
   },
   "peerDependencies": {
-    "@angular/animations": ">=20 <21",
     "@angular/common": ">=20 <21",
     "@angular/core": ">=20 <21",
     "zone.js": ">=0.15 <0.16"

@@ -1,21 +1,25 @@
-@if (!isHidden) {
+@if (shouldRenderButton()) {
   <button
     (click)="scrollTop()"
-    [style.background-color]="backgroundColor"
-    [@easeInOutAnimation]
-    >
+    [class.fade-in]="fadeState() === 'fading-in'"
+    [class.fade-out]="fadeState() === 'fading-out'"
+    [class.idle]="fadeState() === 'idle'"
+    [style.background-color]="backgroundColor()"
+    aria-label="Scroll to top"
+    style="overflow: visible;"
+  >
     <div class="content" #content>
       <ng-content></ng-content>
     </div>
     @if (!content?.innerHTML?.length) {
       <svg
-        class="default-content"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
         aria-hidden="true"
+        class="default-content"
+        fill="currentColor"
         focusable="false"
-        >
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <desc>
           https://fonts.gstatic.com/s/i/materialicons/expand_less/v12/24px.svg
         </desc>
