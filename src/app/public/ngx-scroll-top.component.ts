@@ -70,9 +70,9 @@ export class NgxScrollTopComponent implements OnInit {
   @Input() @HostBinding('style.font-size') public fontSize = '16px';
 
   /**
-   * Height of back to top button in string px format.
+   * Height of back to top button in string format.
    *
-   * Default: `'25px'`
+   * @example `'32px'` or `'2rem'`
    */
   @Input() @HostBinding('style.height') public height = '40px';
 
@@ -84,9 +84,9 @@ export class NgxScrollTopComponent implements OnInit {
   public readonly position = input<'left' | 'right'>('right');
 
   /**
-   * Width of back to top button in string px format.
+   * Width of back to top button in string format.
    *
-   * Default: `'25px'`
+   * @example `'32px'` or `'2rem'`
    */
   @Input() @HostBinding('style.width') public width = '40px';
 
