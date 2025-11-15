@@ -2,6 +2,7 @@ import {
   Component,
   HostBinding,
   HostListener,
+  OnDestroy,
   OnInit,
   input,
   signal,
@@ -14,7 +15,7 @@ import {
   imports: [],
   standalone: true,
 })
-export class NgxScrollTopComponent implements OnInit {
+export class NgxScrollTopComponent implements OnInit, OnDestroy {
   /**
    * Background color of the back to top button (hex string).
    *
@@ -159,6 +160,15 @@ export class NgxScrollTopComponent implements OnInit {
     }
     this.updateButtonVisibility();
     this.updatePosition();
+  }
+
+  public ngOnDestroy(): void {
+    if (this.fadeTimeout) {
+      clearTimeout(this.fadeTimeout);
+    }
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
   }
 
   /** Scroll smoothly to the top of the window. */
