@@ -40,6 +40,8 @@ const animationMs = 200;
       }
     `,
   ],
+  imports: [],
+  standalone: true,
 })
 export class NgxScrollTopComponent implements OnInit, OnDestroy {
   /**
@@ -159,6 +161,10 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
   /** Timeout reference for fade completion. */
   private fadeTimeout?: ReturnType<typeof setTimeout>;
 
+  protected isButtonNotRendered = signal(true);
+
+  private isDestroyed = false;
+
   private animationFrameId?: number;
 
   @HostBinding('style.bottom') protected styleBottom = this.defaultPadding;
@@ -189,11 +195,14 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    this.isDestroyed = true;
     if (this.fadeTimeout) {
       clearTimeout(this.fadeTimeout);
+      this.fadeTimeout = undefined;
     }
     if (this.animationFrameId) {
       cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = undefined;
     }
   }
 
@@ -253,25 +262,37 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
 
     // Fade in
     if (!this.shouldRenderButton() && scrollY > displayAtYPosition) {
+      // Cancel any pending fade-out
+      if (this.fadeTimeout) {
+        clearTimeout(this.fadeTimeout);
+        this.fadeTimeout = undefined;
+      }
+      this.fadeState.set('idle'); // Reset fade state
       this.shouldRenderButton.set(true);
-      this.fadeState.set('idle');
-      if (this.fadeTimeout) clearTimeout(this.fadeTimeout);
+      this.isButtonNotRendered.set(true);
 
-      // Cancel previous frame if exists
+      // Cancel previous animation frame if exists
       if (this.animationFrameId) {
         cancelAnimationFrame(this.animationFrameId);
       }
 
-      // Schedule fade-in with animation frame
-      this.animationFrameId = requestAnimationFrame(() => {
+      // Schedule and track new animation frame
+      const animationFrameId = requestAnimationFrame(() => {
+        if (this.isDestroyed) return;
         this.fadeState.set('fading-in');
+        this.isButtonNotRendered.set(false);
+        this.animationFrameId = undefined;
       });
+
+      this.animationFrameId = animationFrameId;
     }
+
     // Fade out
     else if (this.shouldRenderButton() && scrollY <= displayAtYPosition) {
       this.fadeState.set('fading-out');
       if (this.fadeTimeout) clearTimeout(this.fadeTimeout);
       this.fadeTimeout = setTimeout(() => {
+        if (this.isDestroyed) return;
         this.shouldRenderButton.set(false);
         this.fadeState.set('idle');
       }, this.fadeDuration);
