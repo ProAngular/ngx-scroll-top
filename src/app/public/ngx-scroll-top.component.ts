@@ -1,33 +1,49 @@
-import { animate, style, transition, trigger } from '@angular/animations';
-
 import {
   Component,
   HostBinding,
   HostListener,
-  Input,
+  OnDestroy,
   OnInit,
+  input,
+  signal,
 } from '@angular/core';
+
+const animationMs = 200;
 
 @Component({
   selector: 'ngx-scroll-top',
   templateUrl: './ngx-scroll-top.component.html',
   styleUrl: './ngx-scroll-top.component.scss',
-  animations: [
-    trigger('easeInOutAnimation', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('200ms', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate('200ms', style({ opacity: 0 })),
-      ]),
-    ]),
+  styles: [
+    `
+      .fade-in {
+        animation: fadeIn ${animationMs}ms ease-in forwards;
+      }
+      .fade-out {
+        animation: fadeOut ${animationMs}ms ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    `,
   ],
   imports: [],
   standalone: true,
 })
-export class NgxScrollTopComponent implements OnInit {
+export class NgxScrollTopComponent implements OnInit, OnDestroy {
   /**
    * Background color of the back to top button (hex string).
    *
@@ -37,7 +53,8 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * Tip: Define any `'x'` css property available for `'background-color: x'`
    */
-  @Input() public backgroundColor = '#0D58C0';
+  public readonly backgroundColor = input('#0D58C0');
+
   /**
    * Offset `px` from bottom of page when scrolled to bottom. For example this
    * can be used to make sure the back to top button never overlaps a footer.
@@ -46,7 +63,8 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * Example: `'250px'` or `250` because my footer is 250px in height
    */
-  @Input() public bottomOffset: string | number = '0px';
+  public readonly bottomOffset = input<string | number>('0px');
+
   /**
    * The back to top button will not be displayed until the user scrolls to the
    * provided Y (vertical `px`) coordinate on the page.
@@ -55,7 +73,8 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * Example: `'100px'` or `100`
    */
-  @Input() public displayAtYPosition: string | number = '420px';
+  public readonly displayAtYPosition = input<string | number>('420px');
+
   /**
    * The font color for the nested content within the back to top button.
    *
@@ -65,7 +84,11 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * Tip: Define any `'x'` css property available for `'color: x'`
    */
-  @Input() @HostBinding('style.color') public fontColor = '#FFFFFF';
+  public readonly fontColor = input('#FFFFFF');
+  @HostBinding('style.color') protected get hostFontColor(): string {
+    return this.fontColor();
+  }
+
   /**
    * The font size for the nested content within the back to top button.
    *
@@ -75,46 +98,88 @@ export class NgxScrollTopComponent implements OnInit {
    *
    * Tip: Define any `'x'` css property available for `'font-size: x'`
    */
-  @Input() @HostBinding('style.font-size') public fontSize = '16px';
+  public readonly fontSize = input('16px');
+  @HostBinding('style.font-size') protected get hostFontSize(): string {
+    return this.fontSize();
+  }
+
   /**
-   * Height of back to top button in string px format.
+   * Height of back to top button in string format.
    *
-   * Default: `'25px'`
+   * @example `'32px'` or `'2rem'`
    */
-  @Input() @HostBinding('style.height') public height = '40px';
+  public readonly height = input('40px');
+  @HostBinding('style.height') protected get hostHeight(): string {
+    return this.height();
+  }
+
   /**
    * Position on-screen where the back to top button is displayed.
    *
    * Default: `'right'`
    */
-  @Input() public position: 'left' | 'right' = 'right';
+  public readonly position = input<'left' | 'right'>('right');
+
   /**
-   * Width of back to top button in string px format.
+   * Width of back to top button in string format.
    *
-   * Default: `'25px'`
+   * @example `'32px'` or `'2rem'`
    */
-  @Input() @HostBinding('style.width') public width = '40px';
+  public readonly width = input('40px');
+  @HostBinding('style.width') protected get hostWidth(): string {
+    return this.width();
+  }
+
   /**
    * Style the `z-index` for the back to top button as needed for correct layer
    * height adjustment. This can be useful when working with sticky headers.
    *
    * Default: `999`
    */
-  @Input() @HostBinding('style.z-index') public zIndex = 999;
+  public readonly zIndex = input(999);
+  @HostBinding('style.z-index') protected get hostZIndex(): number {
+    return this.zIndex();
+  }
 
-  public isHidden = true;
+  /**
+   * Whether button should be rendered in DOM.
+   * It stays true during fade-in/fade-out, so animation runs.
+   */
+  protected shouldRenderButton = signal(false);
+
+  /**
+   * State of button animation: "idle", "fading-in", "fading-out".
+   */
+  protected fadeState = signal<'idle' | 'fading-in' | 'fading-out'>('idle');
+
+  /** Default padding from screen edges. */
   private readonly defaultPadding = '16px';
 
-  @HostBinding('style.bottom') public styleBottom = this.defaultPadding;
-  @HostBinding('style.left') public styleLeft = 'unset';
-  @HostBinding('style.right') public styleRight = this.defaultPadding;
-  @HostListener('window:scroll', []) public onWindowScroll(): void {
-    this.updateIsHidden();
+  /** Duration for fade-in/fade-out animations. */
+  private readonly fadeDuration = animationMs;
+
+  /** Timeout reference for fade completion. */
+  private fadeTimeout?: ReturnType<typeof setTimeout>;
+
+  protected isButtonNotRendered = signal(true);
+
+  private isDestroyed = false;
+
+  private animationFrameId?: number;
+
+  @HostBinding('style.bottom') protected styleBottom = this.defaultPadding;
+  @HostBinding('style.left') protected styleLeft = 'unset';
+  @HostBinding('style.right') protected styleRight = this.defaultPadding;
+
+  /** Scroll event listener */
+  @HostListener('window:scroll', [])
+  protected onWindowScroll(): void {
+    this.updateButtonVisibility();
     this.updatePosition();
   }
 
   public ngOnInit(): void {
-    switch (this.position) {
+    switch (this.position()) {
       case 'left':
         this.styleRight = 'unset';
         this.styleLeft = this.defaultPadding;
@@ -125,33 +190,49 @@ export class NgxScrollTopComponent implements OnInit {
         this.styleLeft = 'unset';
         break;
     }
+    this.updateButtonVisibility();
+    this.updatePosition();
   }
 
+  public ngOnDestroy(): void {
+    this.isDestroyed = true;
+    if (this.fadeTimeout) {
+      clearTimeout(this.fadeTimeout);
+      this.fadeTimeout = undefined;
+    }
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = undefined;
+    }
+  }
+
+  /** Scroll smoothly to the top of the window. */
   public scrollTop(): void {
-    w.scroll({
+    window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth',
     });
   }
 
+  /** Dynamically update the button position based on scroll and offsets. */
   private updatePosition(): void {
     const useDefaultPosition = (): void => {
       this.styleBottom = this.defaultPadding;
     };
 
-    if (this.isHidden) {
+    if (!this.shouldRenderButton()) {
       useDefaultPosition();
       return;
     }
 
     try {
-      const { document, scrollY } = w;
+      const { document, scrollY } = window;
       const { documentElement: docEl } = document;
       const bottomY = docEl.scrollHeight - docEl.clientHeight;
-      const bottomOffset = parsePxStringToInt(this.bottomOffset);
+      const bottomOffset = parsePxStringToInt(this.bottomOffset());
       const distanceFromBottom = bottomY - scrollY;
-      const halfHeight = parsePxStringToInt(this.height) / 2;
+      const halfHeight = parsePxStringToInt(this.height()) / 2;
       const defaultPadding = parsePxStringToInt(this.defaultPadding);
 
       if (distanceFromBottom + (halfHeight - defaultPadding) < bottomOffset) {
@@ -171,20 +252,59 @@ export class NgxScrollTopComponent implements OnInit {
     }
   }
 
-  private updateIsHidden(): void {
-    const { scrollY } = w;
-    const displayAtYPosition = parsePxStringToInt(this.displayAtYPosition);
+  /**
+   * Controls when to show/hide the button and triggers CSS animation.
+   * This version guarantees fade-in/fade-out animation runs using signals.
+   */
+  private updateButtonVisibility(): void {
+    const { scrollY } = window;
+    const displayAtYPosition = parsePxStringToInt(this.displayAtYPosition());
 
-    if (this.isHidden && scrollY > displayAtYPosition) {
-      this.isHidden = false;
-    } else if (!this.isHidden && scrollY <= displayAtYPosition) {
-      this.isHidden = true;
+    // Fade in
+    if (!this.shouldRenderButton() && scrollY > displayAtYPosition) {
+      // Cancel any pending fade-out
+      if (this.fadeTimeout) {
+        clearTimeout(this.fadeTimeout);
+        this.fadeTimeout = undefined;
+      }
+      this.fadeState.set('idle'); // Reset fade state
+      this.shouldRenderButton.set(true);
+
+      // Cancel previous animation frame if exists
+      if (this.animationFrameId) {
+        cancelAnimationFrame(this.animationFrameId);
+      }
+
+      // Schedule and track new animation frame
+      const animationFrameId = requestAnimationFrame(() => {
+        if (this.isDestroyed) return;
+        this.fadeState.set('fading-in');
+        this.isButtonNotRendered.set(false);
+        this.animationFrameId = undefined;
+      });
+
+      this.animationFrameId = animationFrameId;
+    }
+
+    // Fade out
+    else if (this.shouldRenderButton() && scrollY <= displayAtYPosition) {
+      this.fadeState.set('fading-out');
+      if (this.fadeTimeout) clearTimeout(this.fadeTimeout);
+      this.fadeTimeout = setTimeout(() => {
+        if (this.isDestroyed) return;
+        this.shouldRenderButton.set(false);
+        this.fadeState.set('idle');
+      }, this.fadeDuration);
     }
   }
 }
 
-const w = window;
-
+/**
+ * Convert a px string or number into a number, handles conversion safely.
+ *
+ * @param value - string/number that could be '40px', '16', 32, etc.
+ * @returns parsed integer value.
+ */
 function parsePxStringToInt(value: string | number): number {
   try {
     return parseInt(value.toString(), 10);
