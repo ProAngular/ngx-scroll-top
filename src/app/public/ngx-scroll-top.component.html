@@ -3,6 +3,7 @@
     (click)="scrollTop()"
     [class.fade-in]="fadeState() === 'fading-in'"
     [class.fade-out]="fadeState() === 'fading-out'"
+    [class.idle]="fadeState() === 'idle'"
     [style.background-color]="backgroundColor()"
     aria-label="Scroll to top"
   >

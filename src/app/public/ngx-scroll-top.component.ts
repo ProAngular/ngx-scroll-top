@@ -8,12 +8,38 @@ import {
   signal,
 } from '@angular/core';
 
+const animationMs = 200;
+
 @Component({
   selector: 'ngx-scroll-top',
   templateUrl: './ngx-scroll-top.component.html',
   styleUrl: './ngx-scroll-top.component.scss',
-  imports: [],
-  standalone: true,
+  styles: [
+    `
+      .fade-in {
+        animation: fadeIn ${animationMs}ms ease-in forwards;
+      }
+      .fade-out {
+        animation: fadeOut ${animationMs}ms ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    `,
+  ],
 })
 export class NgxScrollTopComponent implements OnInit, OnDestroy {
   /**
@@ -128,7 +154,7 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
   private readonly defaultPadding = '16px';
 
   /** Duration for fade-in/fade-out animations. */
-  private readonly fadeDuration = 200;
+  private readonly fadeDuration = animationMs;
 
   /** Timeout reference for fade completion. */
   private fadeTimeout?: ReturnType<typeof setTimeout>;
@@ -239,7 +265,6 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
       // Schedule fade-in with animation frame
       this.animationFrameId = requestAnimationFrame(() => {
         this.fadeState.set('fading-in');
-        this.animationFrameId = undefined;
       });
     }
     // Fade out
