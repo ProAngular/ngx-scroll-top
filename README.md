@@ -152,17 +152,17 @@ Customization with optional inputs and icon
 
 ## 📚 Component API <a name="api"></a>
 
-| Input                  | Value Typing     | Default Value | Description                                                                                                                                      |
-| ---------------------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **backgroundColor**    | string           | #0D58C0       | Background color of the back to top button. Define any 'x' css property available for 'background-color: x'.                                     |
-| **bottomOffset**       | string \| number | 0px           | Offset px from bottom of page when scrolled to bottom. For example this can be used to make sure the back to top button never overlaps a footer. |
-| **displayAtYPosition** | string \| number | 420px         | The back to top button will not be displayed until the user scrolls to the provided Y (vertical px) coordinate on the page.                      |
-| **fontColor**          | string           | #FFFFFF       | The font color for the nested content within the back to top button. Define any 'x' css property available for 'color: x'.                       |
-| **fontSize**           | string           | 16px          | The font size for the nested content within the back to top button. Define any 'x' css property available for 'font-size: x'.                    |
-| **height**             | string           | 32px \| 1rem  | Height of back to top button in string format.                                                                                                   |
-| **position**           | left \| right    | right         | Position on-screen where the back to top button is displayed.                                                                                    |
-| **width**              | string           | 32px \| 1rem  | Width of back to top button in string format.                                                                                                    |
-| **zIndex**             | number           | 999           | Style the z-index for the back to top button as needed for correct layer height adjustment. This can be useful when working with sticky headers. |
+| Input                  | Value Typing     | Default Value    | Description                                                                                                                                      |
+| ---------------------- | ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **backgroundColor**    | string           | `#0D58C0`        | Background color of the back to top button. Define any 'x' css property available for 'background-color: x'.                                     |
+| **bottomOffset**       | string \| number | `0px`            | Offset px from bottom of page when scrolled to bottom. For example this can be used to make sure the back to top button never overlaps a footer. |
+| **displayAtYPosition** | string \| number | `420px`          | The back to top button will not be displayed until the user scrolls to the provided Y (vertical px) coordinate on the page.                      |
+| **fontColor**          | string           | `#FFFFFF`        | The font color for the nested content within the back to top button. Define any 'x' css property available for 'color: x'.                       |
+| **fontSize**           | string           | `16px`           | The font size for the nested content within the back to top button. Define any 'x' css property available for 'font-size: x'.                    |
+| **height**             | string           | `32px` \| `1rem` | Height of back to top button in string format.                                                                                                   |
+| **position**           | left \| right    | `right`          | Position on-screen where the back to top button is displayed.                                                                                    |
+| **width**              | string           | `32px` \| `1rem` | Width of back to top button in string format.                                                                                                    |
+| **zIndex**             | number           | `999`            | Style the z-index for the back to top button as needed for correct layer height adjustment. This can be useful when working with sticky headers. |
 
 <p align="right">[ <a href="#index">🔍 Index</a> ]</p>
 

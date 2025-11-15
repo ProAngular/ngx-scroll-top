@@ -269,7 +269,6 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
       }
       this.fadeState.set('idle'); // Reset fade state
       this.shouldRenderButton.set(true);
-      this.isButtonNotRendered.set(true);
 
       // Cancel previous animation frame if exists
       if (this.animationFrameId) {
