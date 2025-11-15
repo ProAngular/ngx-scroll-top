@@ -118,6 +118,8 @@ export class NgxScrollTopComponent implements OnInit {
   /** Timeout reference for fade completion. */
   private fadeTimeout?: ReturnType<typeof setTimeout>;
 
+  private animationFrameId?: number;
+
   @HostBinding('style.bottom') protected styleBottom = this.defaultPadding;
   @HostBinding('style.left') protected styleLeft = 'unset';
   @HostBinding('style.right') protected styleRight = this.defaultPadding;
@@ -202,20 +204,26 @@ export class NgxScrollTopComponent implements OnInit {
     // Fade in
     if (!this.shouldRenderButton() && scrollY > displayAtYPosition) {
       this.shouldRenderButton.set(true);
-      this.fadeState.set('idle'); // Set opacity: 0
+      this.fadeState.set('idle');
       if (this.fadeTimeout) clearTimeout(this.fadeTimeout);
 
-      // Wait for DOM render, force a browser animation frame, THEN set fade-in
-      requestAnimationFrame(() => {
-        this.fadeState.set('fading-in'); // triggers fadeIn animation
+      // Cancel previous frame if exists
+      if (this.animationFrameId) {
+        cancelAnimationFrame(this.animationFrameId);
+      }
+
+      // Schedule fade-in with animation frame
+      this.animationFrameId = requestAnimationFrame(() => {
+        this.fadeState.set('fading-in');
+        this.animationFrameId = undefined;
       });
     }
     // Fade out
     else if (this.shouldRenderButton() && scrollY <= displayAtYPosition) {
-      this.fadeState.set('fading-out'); // start fadeOut animation
+      this.fadeState.set('fading-out');
       if (this.fadeTimeout) clearTimeout(this.fadeTimeout);
       this.fadeTimeout = setTimeout(() => {
-        this.shouldRenderButton.set(false); // remove button from DOM
+        this.shouldRenderButton.set(false);
         this.fadeState.set('idle');
       }, this.fadeDuration);
     }
