@@ -6,7 +6,7 @@
     @proangular/ngx-scroll-top
   </h1>
   <p align="center">
-    <a href="https://github.com/ProAngular/ngx-scroll-top" target="_blank">
+    <a href="https://www.ProAngular.com" target="_blank">
       ProAngular
     </a>&nbsp;&nbsp;|&nbsp;&nbsp;
     <a href="https://github.com/ProAngular/ngx-scroll-top" target="_blank">
@@ -174,6 +174,7 @@ Customization with optional inputs and icon
 
 | Angular version | @proangular/ngx-scroll-top | Install                                   |
 | --------------- | -------------------------- | ----------------------------------------- |
+| v21             | v21.X                      | `ng add @proangular/ngx-scroll-top@^21`   |
 | v20             | v20.X                      | `ng add @proangular/ngx-scroll-top@^20`   |
 | v19             | v19.X                      | `ng add @proangular/ngx-scroll-top@^19`   |
 | v18             | ------                     | Untested                                  |
