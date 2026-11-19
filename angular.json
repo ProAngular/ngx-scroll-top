@@ -73,20 +73,23 @@
           "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+            "runnerConfig": "vitest.config.mjs",
+            "coverageInclude": [
+              "src/app/public/**/*.ts"
             ],
-            "styles": [
-              "src/styles.scss"
+            "coverageExclude": [
+              "**/*.spec.ts",
+              "**/public.ts"
             ],
-            "scripts": []
+            "coverageReporters": [
+              "text",
+              "text-summary",
+              "html",
+              "lcov",
+              "json-summary"
+            ]
           }
         },
         "lint": {
