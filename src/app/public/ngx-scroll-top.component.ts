@@ -1,14 +1,17 @@
 import {
   Component,
-  HostBinding,
-  HostListener,
-  OnDestroy,
-  OnInit,
+  DestroyRef,
+  afterNextRender,
+  computed,
+  inject,
   input,
   signal,
 } from '@angular/core';
 
 const animationMs = 200;
+
+/** Default padding from screen edges. */
+const defaultPadding = '16px';
 
 @Component({
   selector: 'ngx-scroll-top',
@@ -41,9 +44,38 @@ const animationMs = 200;
     `,
   ],
   imports: [],
-  standalone: true,
+  host: {
+    '[style.bottom]': 'styleBottom()',
+    '[style.color]': 'fontColor()',
+    '[style.font-size]': 'fontSize()',
+    '[style.height]': 'height()',
+    '[style.left]': 'styleLeft()',
+    '[style.right]': 'styleRight()',
+    '[style.width]': 'width()',
+    '[style.z-index]': 'zIndex()',
+    '(window:scroll)': 'onWindowScroll()',
+  },
 })
-export class NgxScrollTopComponent implements OnInit, OnDestroy {
+export class NgxScrollTopComponent {
+  public constructor() {
+    inject(DestroyRef).onDestroy(() => {
+      this.isDestroyed = true;
+      if (this.fadeTimeout) {
+        clearTimeout(this.fadeTimeout);
+        this.fadeTimeout = undefined;
+      }
+      if (this.animationFrameId) {
+        cancelAnimationFrame(this.animationFrameId);
+        this.animationFrameId = undefined;
+      }
+    });
+
+    afterNextRender(() => {
+      this.updateButtonVisibility();
+      this.updatePosition();
+    });
+  }
+
   /**
    * Background color of the back to top button (hex string).
    *
@@ -85,9 +117,6 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
    * Tip: Define any `'x'` css property available for `'color: x'`
    */
   public readonly fontColor = input('#FFFFFF');
-  @HostBinding('style.color') protected get hostFontColor(): string {
-    return this.fontColor();
-  }
 
   /**
    * The font size for the nested content within the back to top button.
@@ -99,9 +128,6 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
    * Tip: Define any `'x'` css property available for `'font-size: x'`
    */
   public readonly fontSize = input('16px');
-  @HostBinding('style.font-size') protected get hostFontSize(): string {
-    return this.fontSize();
-  }
 
   /**
    * Height of back to top button in string format.
@@ -109,9 +135,6 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
    * @example `'32px'` or `'2rem'`
    */
   public readonly height = input('40px');
-  @HostBinding('style.height') protected get hostHeight(): string {
-    return this.height();
-  }
 
   /**
    * Position on-screen where the back to top button is displayed.
@@ -126,9 +149,6 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
    * @example `'32px'` or `'2rem'`
    */
   public readonly width = input('40px');
-  @HostBinding('style.width') protected get hostWidth(): string {
-    return this.width();
-  }
 
   /**
    * Style the `z-index` for the back to top button as needed for correct layer
@@ -137,74 +157,38 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
    * Default: `999`
    */
   public readonly zIndex = input(999);
-  @HostBinding('style.z-index') protected get hostZIndex(): number {
-    return this.zIndex();
-  }
 
   /**
    * Whether button should be rendered in DOM.
    * It stays true during fade-in/fade-out, so animation runs.
    */
-  protected shouldRenderButton = signal(false);
+  protected readonly shouldRenderButton = signal(false);
 
   /**
    * State of button animation: "idle", "fading-in", "fading-out".
    */
-  protected fadeState = signal<'idle' | 'fading-in' | 'fading-out'>('idle');
+  protected readonly fadeState = signal<'idle' | 'fading-in' | 'fading-out'>(
+    'idle',
+  );
 
-  /** Default padding from screen edges. */
-  private readonly defaultPadding = '16px';
+  protected readonly isButtonNotRendered = signal(true);
 
-  /** Duration for fade-in/fade-out animations. */
-  private readonly fadeDuration = animationMs;
+  protected readonly styleBottom = signal(defaultPadding);
+
+  protected readonly styleLeft = computed(() =>
+    this.position() === 'left' ? defaultPadding : 'unset',
+  );
+
+  protected readonly styleRight = computed(() =>
+    this.position() === 'left' ? 'unset' : defaultPadding,
+  );
 
   /** Timeout reference for fade completion. */
   private fadeTimeout?: ReturnType<typeof setTimeout>;
 
-  protected isButtonNotRendered = signal(true);
-
   private isDestroyed = false;
 
   private animationFrameId?: number;
-
-  @HostBinding('style.bottom') protected styleBottom = this.defaultPadding;
-  @HostBinding('style.left') protected styleLeft = 'unset';
-  @HostBinding('style.right') protected styleRight = this.defaultPadding;
-
-  /** Scroll event listener */
-  @HostListener('window:scroll', [])
-  protected onWindowScroll(): void {
-    this.updateButtonVisibility();
-    this.updatePosition();
-  }
-
-  public ngOnInit(): void {
-    switch (this.position()) {
-      case 'left':
-        this.styleRight = 'unset';
-        this.styleLeft = this.defaultPadding;
-        break;
-      case 'right':
-      default:
-        this.styleRight = this.defaultPadding;
-        this.styleLeft = 'unset';
-        break;
-    }
-    this.updateButtonVisibility();
-    this.updatePosition();
-  }
-
-  public ngOnDestroy(): void {
-    this.isDestroyed = true;
-    if (this.fadeTimeout) {
-      clearTimeout(this.fadeTimeout);
-      this.fadeTimeout = undefined;
-    }
-    if (this.animationFrameId) {
-      cancelAnimationFrame(this.animationFrameId);
-      this.animationFrameId = undefined;
-    }
-  }
 
   /** Scroll smoothly to the top of the window. */
   public scrollTop(): void {
@@ -215,10 +199,16 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
     });
   }
 
+  /** Window scroll event listener, bound through `host`. */
+  protected onWindowScroll(): void {
+    this.updateButtonVisibility();
+    this.updatePosition();
+  }
+
   /** Dynamically update the button position based on scroll and offsets. */
   private updatePosition(): void {
     const useDefaultPosition = (): void => {
-      this.styleBottom = this.defaultPadding;
+      this.styleBottom.set(defaultPadding);
     };
 
     if (!this.shouldRenderButton()) {
@@ -233,13 +223,13 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
       const bottomOffset = parsePxStringToInt(this.bottomOffset());
       const distanceFromBottom = bottomY - scrollY;
       const halfHeight = parsePxStringToInt(this.height()) / 2;
-      const defaultPadding = parsePxStringToInt(this.defaultPadding);
+      const padding = parsePxStringToInt(defaultPadding);
 
-      if (distanceFromBottom + (halfHeight - defaultPadding) < bottomOffset) {
+      if (distanceFromBottom + (halfHeight - padding) < bottomOffset) {
         // Scroll up button exceeded bottom offset, update position.
-        this.styleBottom = `${
-          bottomOffset - distanceFromBottom + defaultPadding
-        }px`;
+        this.styleBottom.set(
+          `${bottomOffset - distanceFromBottom + padding}px`,
+        );
       } else {
         useDefaultPosition();
       }
@@ -294,23 +284,17 @@ export class NgxScrollTopComponent implements OnInit, OnDestroy {
         if (this.isDestroyed) return;
         this.shouldRenderButton.set(false);
         this.fadeState.set('idle');
-      }, this.fadeDuration);
+      }, animationMs);
     }
   }
 }
 
 /**
- * Convert a px string or number into a number, handles conversion safely.
+ * Convert a px string or number into a number.
  *
  * @param value - string/number that could be '40px', '16', 32, etc.
  * @returns parsed integer value.
  */
 function parsePxStringToInt(value: string | number): number {
-  try {
-    return parseInt(value.toString(), 10);
-  } catch (error: unknown) {
-    throw new Error(
-      `Failed to parse value "${value}" with error: ${String(error)}`,
-    );
-  }
+  return parseInt(value.toString(), 10);
 }

@@ -172,18 +172,20 @@ Customization with optional inputs and icon
 
 ## 🔄 Compatibility <a name="compatibility"></a>
 
-| Angular version | @proangular/ngx-scroll-top | Install                                   |
-| --------------- | -------------------------- | ----------------------------------------- |
-| v21             | v21.X                      | `ng add @proangular/ngx-scroll-top@^21`   |
-| v20             | v20.X                      | `ng add @proangular/ngx-scroll-top@^20`   |
-| v19             | v19.X                      | `ng add @proangular/ngx-scroll-top@^19`   |
-| v18             | ------                     | Untested                                  |
-| v17             | ------                     | Untested                                  |
-| v16             | ------                     | Untested                                  |
-| v15             | ------                     | Untested                                  |
-| v14             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
-| v13             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
-| v12             | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
+| Angular version                                                                                                                                                                                                                            | @proangular/ngx-scroll-top | Install                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- | ----------------------------------------- |
+| v22                                                                                                                                                                                                                                        | v22.X                      | `ng add @proangular/ngx-scroll-top@^22`   |
+| v21                                                                                                                                                                                                                                        | v21.X                      | `ng add @proangular/ngx-scroll-top@^21`   |
+| v20                                                                                                                                                                                                                                        | v20.X                      | `ng add @proangular/ngx-scroll-top@^20`   |
+| v19                                                                                                                                                                                                                                        | v19.X                      | `ng add @proangular/ngx-scroll-top@^19`   |
+| v18                                                                                                                                                                                                                                        | ------                     | Untested                                  |
+| v17                                                                                                                                                                                                                                        | ------                     | Untested                                  |
+| v16                                                                                                                                                                                                                                        | ------                     | Untested                                  |
+| v15                                                                                                                                                                                                                                        | ------                     | Untested                                  |
+| v14                                                                                                                                                                                                                                        | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
+| v13                                                                                                                                                                                                                                        | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
+| v12                                                                                                                                                                                                                                        | v1.x.x                     | `ng add @proangular/ngx-scroll-top@1.1.8` |
+| Version 22 requires Angular 22 (`>=22 <23` for `@angular/core` and `@angular/common`). It no longer lists `zone.js` as a peer dependency, so it works in zoneless apps. The selector, inputs and `scrollTop()` method are the same as v21. |
 
 <p align="right">[ <a href="#index">🔍 Index</a> ]</p>
 

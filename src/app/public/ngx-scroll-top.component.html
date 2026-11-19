@@ -10,7 +10,7 @@
     <div class="content" #content>
       <ng-content></ng-content>
     </div>
-    @if (!content?.innerHTML?.length) {
+    @if (!content.innerHTML.length) {
       <svg
         aria-hidden="true"
         class="default-content"
